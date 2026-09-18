@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Imagine-TAMP: Imagination-Guided Task and Motion Planning in Partial Observability.">
+  <meta name="keywords" content="Imagine-TAMP, TAMP, Task and Motion Planning, Partial Observability, Robotics, ICRA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imagine-TAMP: Imagination-Guided Task and Motion Planning in Partial Observability</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- ===================== Header: title, authors, links ===================== -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="method-name">Imagine-TAMP</span>: Imagination-Guided Task and Motion Planning in Partial Observability
+          </h1>
+
+          <!-- TODO: replace placeholder authors, affiliations, and links. -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Antareep Singha</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Shivaram Kumar</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Yoonwoo Kim</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="#">Yoonchang Sung</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Algorithmic Robotics Group, Nanyang Technological University</span>
+            <span class="author-block"><sup>2</sup>University of Texas at Austin</span>
+          </div>
+
+          <div class="is-size-5 publication-venue">
+            Submitted to IEEE International Conference on Robotics and Automation (ICRA), 2027
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Teaser ===================== -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!--
+        TODO: swap the placeholder for the teaser video once it is added, e.g.
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/teaser.mp4" type="video/mp4">
+        </video>
+      -->
+      <img src="./static/images/teaser_placeholder.svg" alt="Imagine-TAMP teaser placeholder" class="teaser-image">
+      <h2 class="subtitle has-text-centered">
+        <span class="method-name">Imagine-TAMP</span> imagines the unobserved parts of a scene to plan
+        long-horizon manipulation tasks under partial observability.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Abstract ===================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: replace with the paper abstract. -->
+          <p>
+            Robots operating in cluttered environments must often manipulate objects whose locations are only partially 
+            observable. A central challenge is deciding whether to acquire another observation or to first manipulate objects 
+            that may occlude the target. Conventional task and motion planning (TAMP) approaches typically make this decision 
+            using symbolic action costs or expensive geometric planning, neither of which adequately captures how likely an 
+            observation is to reveal an occluded target. We introduce Imagine-TAMP, an interleaved planning and execution 
+            framework that uses semantic and geometric imagination to compare alternative task-level strategies under partial 
+            observability before committing to expensive motion planning. A vision-language model shapes a particle belief over
+             target locations using commonsense relationships between the target and visible objects, while a generative scene
+              model estimates plausible geometry in unobserved regions. Given a target hypothesis and imagined scene, Imagine-TAMP
+               generates multiple symbolic plan skeletons and assigns non-unit costs that approximate both manipulation effort and 
+               target visibility from sensing actions, distinguishing a short but poorly informative observation strategy from a 
+               longer strategy that first manipulates an occluder to better expose the target. The selected skeleton is then refined
+                into a feasible continuous plan and executed, with new observations updating the belief and triggering replanning when
+                 necessary. Experiments show that imagination-guided evaluation improves observation-versus-manipulation decisions: in 
+                 viewpoint-constrained shelf scenes, non-unit geometric evaluation increases success from 46.0% to 84.0%, while semantic 
+                 belief shaping further reduces manipulation and replanning. On a real robot, the complete system reduces planning time 
+                 by 32% relative to a geometry-only ablation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Method Overview ===================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="figure-wrap">
+          <!-- TODO: replace with the pipeline figure, e.g. ./static/images/pipeline.png -->
+          <img src="./static/images/pipeline_placeholder.svg" alt="Imagine-TAMP pipeline overview" class="overview-figure">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            <strong><span class="method-name">Imagine-TAMP</span></strong> takes partial observations of a scene,
+            imagines plausible completions of the unobserved state, and uses those imagined states to guide
+            task and motion planning. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Results: video carousel ===================== -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+      <p class="subtitle has-text-centered result-hint">
+        Placeholder: rollouts of <span class="method-name">Imagine-TAMP</span> on tasks under partial observability.
+        Videos will be added here.
+      </p>
+      <div id="results-carousel" class="carousel results-carousel">
+        <!--
+          TODO: replace each placeholder with a video, e.g.
+          <div class="item">
+            <video poster="" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/task1.mp4" type="video/mp4">
+            </video>
+          </div>
+        -->
+        <div class="item"><div class="video-placeholder"><span>Task 1</span></div></div>
+        <div class="item"><div class="video-placeholder"><span>Task 2</span></div></div>
+        <div class="item"><div class="video-placeholder"><span>Task 3</span></div></div>
+        <div class="item"><div class="video-placeholder"><span>Task 4</span></div></div>
+        <div class="item"><div class="video-placeholder"><span>Task 5</span></div></div>
+        <div class="item"><div class="video-placeholder"><span>Task 6</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Results: comparisons and real robot ===================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <!-- Comparison. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Comparison with Baselines</h2>
+          <p>
+            Placeholder text: side-by-side comparison of <span class="method-name">Imagine-TAMP</span>
+            with baseline planners on the same partially observed scene.
+          </p>
+          <div class="video-placeholder tall"><span>Comparison video</span></div>
+        </div>
+      </div>
+      <!-- Real robot. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Real-World Rollouts</h2>
+          <p>
+            Placeholder text: real-robot executions of plans produced by
+            <span class="method-name">Imagine-TAMP</span>.
+          </p>
+          <div class="video-placeholder tall"><span>Real-robot video</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quantitative results. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+        <div class="figure-wrap">
+          <!-- TODO: replace with the results figure or a table, e.g. ./static/images/results.png -->
+          <img src="./static/images/results_placeholder.svg" alt="Quantitative results placeholder" class="results-figure">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Placeholder caption: success rate and planning time of
+            <span class="method-name">Imagine-TAMP</span> compared to baselines across tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <!--
+          TODO: replace with the YouTube embed once the video is uploaded, e.g.
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&amp;showinfo=0"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        -->
+        <div class="video-placeholder wide"><span>Supplementary video</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== BibTeX ===================== -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <!-- TODO: update authors and year. -->
+    <pre><code>@inproceedings{imaginetamp2027,
+  author    = {Author One and Author Two and Author Three and Author Four},
+  title     = {Imagine-TAMP: Imagination-Guided Task and Motion Planning in Partial Observability},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2027},
+}</code></pre>
+  </div>
+</section>
+
+<!-- ===================== Footer ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="#">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="#" class="external-link">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+              Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This page was built using the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies
+            website template</a>. We thank the authors for making the source code available.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
